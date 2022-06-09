@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<title>Home</title>
+		<!-- Meta tag Keywords -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8" />
+		<meta name="keywords" content="" />
+		{% load static %}
+		<script type="text/javascript">
+			addEventListener("load", function() {
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
+		<!-- Meta tag Keywords -->
+		<!-- css files -->
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+		<!-- Style-CSS -->
+		<link rel="stylesheet" href="{% static 'css/fontawesome-all.css' %}">
+		<!--link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"!-->
+		<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/form-elements.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+		<!-- Font-Awesome-Icons-CSS -->
+		<!-- //css files -->
+		<!-- Favicon and touch icons -->
+		<link rel="shortcut icon" href="assets/ico/favicon.png">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144"
+			href="{% static 'assets/ico/apple-touch-icon-144-precomposed.png' %}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114"
+			href="{% static 'assets/ico/apple-touch-icon-114-precomposed.png' %}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72"
+			href="{% static 'assets/ico/apple-touch-icon-72-precomposed.png' %}">
+		<link rel="apple-touch-icon-precomposed" href="{% static 'assets/ico/apple-touch-icon-57-precomposed.png' %}">
+
+		<!-- web-fonts -->
+		<link href="http://maxcdn.bootstrapcdn.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i"
+			rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+			rel="stylesheet">
+		<!-- //web-fonts -->
+	</head>
+
+	<body>
+		<style type="text/css">
+			.mytable {
+				width: 100px;
+				height: 100px;
+				margin: 0 auto;
+			}
+		</style>
+		<!-- bg effect -->
+		<div id="bg">
+			<canvas></canvas>
+			<canvas></canvas>
+			<canvas></canvas>
+		</div>
+		<!-- //bg effect -->
+		<!-- title -->
+		<h1 style="color:white">Thyroid Nodules Prediction</h1>
+		<!-- //title -->
+		<!-- content -->
+		<div class="sub-main-w3">
+			<form action="#" method="post">
+				{% csrf_token %}
+				<div class="form-style-agile">
+					<table class="mytable">
+						<tr>
+							<td align='right'>
+								<label>
+									Age&nbsp;
+								</label>
+							</td>
+							<td>
+								<input placeholder="" name="age" type="number" required="" value="{{age_text}}">
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;
+								<td />
+							<td>&nbsp;
+								<td />
+						</tr>
+						<tr>
+							<td align='right'>
+								<label>
+									Gender&nbsp;
+								</label>
+							</td>
+							<td align='left'>
+								<input type="radio" id="sex_male" name="sex" value="male" {% if sex == 0 %} checked=""
+									{% endif %} />
+								<label for="sex_male">Male</label>
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td align='left'>
+								<input type="radio" id="sex_female" name="sex" value="female" {% if sex == 1 %}
+									checked="" {% endif %} />
+								<label for="sex_female">Female</label>
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;
+								<td />
+							<td>&nbsp;
+								<td />
+						</tr>
+						<tr>
+							<td align='right'>
+								<label>
+									Composition&nbsp;
+								</label>
+							</td>
+							<td align='left'>
+								<input type="radio" id="composition_cystic" name="composition" value="cystic"
+									{% if composition == 0 %} checked="" {% endif %} />
+								<label for="composition_cystic">Cystic</label>
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td align='left'>
+								<input type="radio" id="composition_partially_cystic" name="composition"
+									value="partially_cystic" {% if composition == 0.5 %} checked="" {% endif %} />
+								<label for="composition_partially_cystic">Partially Cystic</label>
+								<br />
+								<input type="radio" id="composition_solid" name="composition" value="solid"
+									{% if composition == 1 %} checked="" {% endif %} />
+								<label for="composition_solid">Solid</label>
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;
+								<td />
+							<td>&nbsp;
+								<td />
+						</tr>
+						<tr>
+							<td align='right'>
+								<label>
+									Margin&nbsp;
+								</label>
+							</td>
+							<td align='left'>
+								<input type="radio" id="margin_well_defined" name="margin" value="well_defined"
+									{% if margin == 0 %} checked="" {% endif %} />
+								<label for="margin_well_defined">Well defined</label>
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td align='left'>
+								<input type="radio" id="margin_ill_defined" name="margin" value="ill_defined"
+									{% if margin == 0.5 %} checked="" {% endif %} />
+								<label for="margin_ill_defined">Ill defined</label>
+								<br />
+								<input type="radio" id="margin_spiculated" name="margin" value="spiculated"
+									{% if margin == 1 %} checked="" {% endif %} />
+								<label for="margin_spiculated">Spiculated</label>
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;
+								<td />
+							<td>&nbsp;
+								<td />
+						</tr>
+						<tr>
+							<td align='right'>
+								<label>
+									Echogenicity&nbsp;
+								</label>
+							</td>
+							<td align='left'>
+								<input type="radio" id="echogenicity_isoechogenicity" name="echogenicity"
+									value="isoechogenicity" {% if echogenicity_isoechogenicity == 1 %} checked=""
+									{% endif %} />
+								<label for="echogenicity_isoechogenicity">Isoechogenicity</label>
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td align='left'>
+								<input type="radio" id="echogenicity_hypoechogenicity" name="echogenicity"
+									value="hypoechogenicity" {% if echogenicity_hypoechogenicity == 1 %} checked=""
+									{% endif %} />
+								<label for="echogenicity_hypoechogenicity">Hypoechogenicity</label>
+								<br />
+								<input type="radio" id="echogenicity_hyperechogenicity" name="echogenicity"
+									value="hyperechogenicity" {% if echogenicity_isoechogenicity == 0 %}
+									{% if echogenicity_hypoechogenicity == 0 %} checked="" {% endif %} {% endif %} />
+								<label for="echogenicity_hyperechogenicity">Hyperechogenicity</label>
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;
+								<td />
+							<td>&nbsp;
+								<td />
+						</tr>
+						<tr>
+							<td align='right'>
+								<label>
+									Calcification&nbsp;
+								</label>
+							</td>
+							<td align='left'>
+								<input type="radio" id="calcification_microcalcification" name="calcification"
+									value="microcalcification" {% if calcification_microcalcification == 1 %} checked=""
+									{% endif %} />
+								<label for="calcification_microcalcification">Microcalcification</label>
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td align='left'>
+								<input type="radio" id="calcification_non" name="calcification" value="non"
+									{% if calcification_non == 1 %} checked="" {% endif %} />
+								<label for="calcification_non">Non</label>
+								<br />
+								<input type="radio" id="calcification_macrocalcification" name="calcification"
+									value="macrocalcification" {% if calcification_microcalcification == 0 %}
+									{% if calcification_non == 0 %} checked="" {% endif %} {% endif %} />
+								<label for="calcification_macrocalcification">Macrocalcification</label>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<input type="submit" value="Predict">
+				<br />
+			</form>
+		</div>
+		<div class="modal fade" id="modal-popup" tabindex="-1" role="dialog" aria-labelledby="modal-register-label"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h3 class="modal-title" id="modal-register-label">Prediction Result</h3>
+					</div>
+					<div class="modal-body">
+						<p style="font-size:40px;color:#f7296f" align="center">{{ result }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //content -->
+		<!-- Jquery -->
+		<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+		<!-- //Jquery -->
+		<!-- effect js -->
+		<script src="{% static 'js/canva_moving_effect.js' %}"></script>
+		<!-- //effect js -->
+		<!--script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script-->
+		<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+		<script src="{% static 'assets/js/scripts.js' %}"></script>
+		{% if result is not null %}
+		<script type="text/javascript">
+			$('#modal-popup').modal('show');
+		</script>
+		{% endif %}
+	</body>
+</html>
